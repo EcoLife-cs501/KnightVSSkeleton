@@ -19,12 +19,15 @@ namespace KnightVSSkeleton
         {
             InitializeComponent();
             skeleton = new Fighter(skeletonPictureBox);
+            knight = new Fighter(knightPictureBox);
             
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            skeletonPictureBox.Enabled = false;
             skeletonPictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            skeletonPictureBox.Enabled = true;
         }
 
         /// <summary>
@@ -37,7 +40,9 @@ namespace KnightVSSkeleton
 
         private void knightAttacks_Click(object sender, EventArgs e)
         {
-            skeleton.Die();
+            skeleton.ReceiveDamage(knight.MakeDamage());
+            skeletonsHealth.Text = skeleton.TellHealth().ToString();
+            
         }
 
 
