@@ -13,6 +13,14 @@ namespace KnightVSSkeleton
         PictureBox mySprite;
         private int health;
 
+        public Fighter(PictureBox sprite)
+        {
+            this.mySprite = sprite;
+            this.health = 100;
+        }
+
+
+
         public int TellHealth()
         {
             return health;
