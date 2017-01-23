@@ -12,5 +12,16 @@ namespace KnightVSSkeleton
         {
 
         }
+
+        /// <summary>
+        /// Это пример того, как работает override, и как достучаться до базового класса
+        /// </summary>
+        /// <returns>Возвращает оригинальный damage + 10</returns>
+
+        public override int MakeDamage()
+        {
+            return base.MakeDamage() + 10;
+        }
+
     }
 }
