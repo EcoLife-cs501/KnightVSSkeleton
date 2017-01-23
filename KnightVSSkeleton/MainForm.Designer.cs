@@ -44,7 +44,7 @@
             this.skeletonPictureBox.Image = global::KnightVSSkeleton.Properties.Resources.Skeleton_Idle;
             this.skeletonPictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("skeletonPictureBox.InitialImage")));
             this.skeletonPictureBox.Location = new System.Drawing.Point(278, 9);
-            this.skeletonPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.skeletonPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.skeletonPictureBox.Name = "skeletonPictureBox";
             this.skeletonPictureBox.Size = new System.Drawing.Size(218, 200);
             this.skeletonPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -56,7 +56,7 @@
             this.knightPictureBox.Image = global::KnightVSSkeleton.Properties.Resources.Knight_Idle;
             this.knightPictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("knightPictureBox.InitialImage")));
             this.knightPictureBox.Location = new System.Drawing.Point(19, 9);
-            this.knightPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.knightPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.knightPictureBox.Name = "knightPictureBox";
             this.knightPictureBox.Size = new System.Drawing.Size(218, 200);
             this.knightPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -65,19 +65,19 @@
             // 
             // knightAttacks
             // 
-            this.button1.Location = new System.Drawing.Point(19, 259);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 44);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Knight Attacks Skeleton";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.knightAttacks.Location = new System.Drawing.Point(19, 259);
+            this.knightAttacks.Margin = new System.Windows.Forms.Padding(2);
+            this.knightAttacks.Name = "knightAttacks";
+            this.knightAttacks.Size = new System.Drawing.Size(238, 44);
+            this.knightAttacks.TabIndex = 2;
+            this.knightAttacks.Text = "Knight Attacks Skeleton";
+            this.knightAttacks.UseVisualStyleBackColor = true;
+            this.knightAttacks.Click += new System.EventHandler(this.knightAttacks_Click);
             // 
             // skeletonAttacks
             // 
             this.skeletonAttacks.Location = new System.Drawing.Point(278, 259);
-            this.skeletonAttacks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.skeletonAttacks.Margin = new System.Windows.Forms.Padding(2);
             this.skeletonAttacks.Name = "skeletonAttacks";
             this.skeletonAttacks.Size = new System.Drawing.Size(229, 44);
             this.skeletonAttacks.TabIndex = 3;
@@ -117,7 +117,7 @@
             this.Controls.Add(this.knightAttacks);
             this.Controls.Add(this.skeletonPictureBox);
             this.Controls.Add(this.knightPictureBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";

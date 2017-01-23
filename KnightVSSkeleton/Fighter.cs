@@ -26,19 +26,24 @@ namespace KnightVSSkeleton
             return health;
         }
 
-        public void Die ()
+        public async void Die()
         {
 
             PictureBox spriteBackup;
             spriteBackup = mySprite;
 
             try
-            {                
+            {
                 mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Skeleton_Death.gif");
+                mySprite.Enabled = true;
+                await Task.Delay(900);
+                mySprite.Enabled = false;
+
             }
             catch (System.IO.FileNotFoundException)
             {
                 mySprite = spriteBackup;
+                MessageBox.Show("Animation file not found!", "File Error!");
             }
         }
 

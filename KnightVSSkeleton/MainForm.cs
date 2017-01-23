@@ -12,9 +12,14 @@ namespace KnightVSSkeleton
 {
     public partial class MainForm : Form
     {
+        Fighter skeleton;
+        Fighter knight;
+
         public MainForm()
         {
             InitializeComponent();
+            skeleton = new Fighter(skeletonPictureBox);
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -30,9 +35,11 @@ namespace KnightVSSkeleton
             throw new System.NotImplementedException();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void knightAttacks_Click(object sender, EventArgs e)
         {
-
+            skeleton.Die();
         }
+
+
     }
 }
