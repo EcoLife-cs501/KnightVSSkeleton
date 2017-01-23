@@ -12,7 +12,10 @@ namespace KnightVSSkeleton
         PictureBox mySprite;
         private int health;
 
-
+        public int TellHealth()
+        {
+            return health;
+        }
 
     }
 }
