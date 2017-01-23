@@ -19,8 +19,8 @@ namespace KnightVSSkeleton
         {
             InitializeComponent();
             skeleton = new Fighter(skeletonPictureBox);
-            knight = new Fighter(knightPictureBox);
             
+            knight = new Fighter(knightPictureBox);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -40,9 +40,11 @@ namespace KnightVSSkeleton
 
         private void knightAttacks_Click(object sender, EventArgs e)
         {
-            skeleton.ReceiveDamage(knight.MakeDamage());
             skeletonsHealth.Text = skeleton.TellHealth().ToString();
             
+           
+
+
         }
 
 

@@ -29,14 +29,16 @@ namespace KnightVSSkeleton
         public void ReceiveDamage(int damage)
         {
             health = health - damage;
+            if (health < 0) Die();
         }
-
 
 
         public int TellHealth()
         {
             return health;
         }
+
+        public int Health { get { return health; } }
 
         public async void Die()
         {
