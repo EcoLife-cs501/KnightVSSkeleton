@@ -40,7 +40,8 @@ namespace KnightVSSkeleton
 
         private void knightAttacks_Click(object sender, EventArgs e)
         {
-            skeletonsHealth.Text = skeleton.TellHealth().ToString();
+            skeleton.ReceiveDamage(knight.MakeDamage());
+            skeletonsHealth.Text = skeleton.Health;
             
            
 

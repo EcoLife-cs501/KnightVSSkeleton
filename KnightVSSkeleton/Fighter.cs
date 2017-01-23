@@ -19,17 +19,21 @@ namespace KnightVSSkeleton
             this.health = 100;
         }
 
-        public int MakeDamage()
+        public virtual int MakeDamage()
         {
             Random random = new Random();
             int damage = random.Next(1, 10);
             return damage;
         }
 
-        public void ReceiveDamage(int damage)
+        public virtual void ReceiveDamage(int damage)
         {
             health = health - damage;
-            if (health < 0) Die();
+            if (health < 0)
+            {
+                Die();
+                health = 0;
+            }
         }
 
 
@@ -38,9 +42,9 @@ namespace KnightVSSkeleton
             return health;
         }
 
-        public int Health { get { return health; } }
+        public string Health { get { return health.ToString(); } }
 
-        public async void Die()
+        public virtual async void Die()
         {
 
             PictureBox spriteBackup;
