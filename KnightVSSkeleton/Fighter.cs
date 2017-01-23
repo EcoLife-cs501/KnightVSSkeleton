@@ -19,6 +19,18 @@ namespace KnightVSSkeleton
             this.health = 100;
         }
 
+        public int MakeDamage()
+        {
+            Random random = new Random();
+            int damage = random.Next(1, 10);
+            return damage;
+        }
+
+        public void ReceiveDamage(int damage)
+        {
+            health = health - damage;
+        }
+
 
 
         public int TellHealth()
