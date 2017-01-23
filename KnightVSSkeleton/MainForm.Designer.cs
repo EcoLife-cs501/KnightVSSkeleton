@@ -65,13 +65,14 @@
             // 
             // knightAttacks
             // 
-            this.knightAttacks.Location = new System.Drawing.Point(19, 259);
-            this.knightAttacks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.knightAttacks.Name = "knightAttacks";
-            this.knightAttacks.Size = new System.Drawing.Size(238, 44);
-            this.knightAttacks.TabIndex = 2;
-            this.knightAttacks.Text = "Knight Attacks Skeleton";
-            this.knightAttacks.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(19, 259);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(238, 44);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Knight Attacks Skeleton";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // skeletonAttacks
             // 
