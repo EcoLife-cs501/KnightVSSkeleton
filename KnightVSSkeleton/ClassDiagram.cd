@@ -14,22 +14,22 @@
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KnightVSSkeleton.Fighter" Collapsed="true">
-    <Position X="3" Y="0.5" Width="1.5" />
+  <Class Name="KnightVSSkeleton.Fighter">
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAgAAAAgAAAAAQAAQAAIAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Fighter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KnightVSSkeleton.Knight">
-    <Position X="2.5" Y="2" Width="1.5" />
+    <Position X="3" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Knight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KnightVSSkeleton.Skeleton">
-    <Position X="4.5" Y="2" Width="1.5" />
+    <Position X="6.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Skeleton.cs</FileName>
