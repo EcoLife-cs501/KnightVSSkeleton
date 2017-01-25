@@ -9,10 +9,10 @@ namespace KnightVSSkeleton
     public class Weapon
     {
 
-        public Weapon()
+        public Weapon(int minDamage, int maxDamage)
         {
-            this.MinDamage = 10;
-            this.MaxDamage = 25;
+            this.MinDamage = minDamage;
+            this.MaxDamage = maxDamage;
         }
 
         virtual public int MinDamage { get; private set; }

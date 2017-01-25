@@ -14,6 +14,7 @@ namespace KnightVSSkeleton
     {
         Fighter skeleton;
         Fighter knight;
+        Weapon mace;
 
         public MainForm()
         {
@@ -21,6 +22,7 @@ namespace KnightVSSkeleton
             skeleton = new Fighter(skeletonPictureBox);
             
             knight = new Fighter(knightPictureBox);
+            mace = new Weapon(10, 25);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
