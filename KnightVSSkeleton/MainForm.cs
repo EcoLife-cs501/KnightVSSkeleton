@@ -12,16 +12,16 @@ namespace KnightVSSkeleton
 {
     public partial class MainForm : Form
     {
-        Fighter skeleton;
-        Fighter knight;
+        Skeleton skeleton;
+        Knight knight;
         Weapon mace;
 
         public MainForm()
         {
             InitializeComponent();
-            skeleton = new Fighter(skeletonPictureBox);
+            skeleton = new Skeleton(skeletonPictureBox);
             
-            knight = new Fighter(knightPictureBox);
+            knight = new Knight(knightPictureBox);
             mace = new Weapon(10, 25);
         }
 
@@ -37,19 +37,53 @@ namespace KnightVSSkeleton
         /// </summary>
         public void Update_All()
         {
-            throw new System.NotImplementedException();
-        }
 
+
+            if (knight.IsDead() || skeleton.IsDead())
+            {
+                skeletonAttacks.Enabled = false;
+                knightAttacks.Enabled = false;
+                if ( knight.IsDead())
+                    MessageBox.Show("Игра окончена победил skeleton");
+                else
+                    MessageBox.Show("Игра окончена победил knight");
+                knight = new Knight(knightPictureBox);
+                skeleton = new Skeleton(skeletonPictureBox);
+                skeletonPictureBox.Enabled = true;
+                knightPictureBox.Enabled = true;
+                skeletonAttacks.Enabled = true;
+                knightAttacks.Enabled = true;
+                
+            }
+            skeletonsHealth.Text = skeleton.Health;
+            knightsHealth.Text = knight.Health;
+        }
         private void knightAttacks_Click(object sender, EventArgs e)
         {
             skeleton.ReceiveDamage(knight.MakeDamage());
-            skeletonsHealth.Text = skeleton.Health;
-            
-           
+            Update_All();
+                    }
 
+        private void skeletonAttacks_Click(object sender, EventArgs e)
+        {
+            knight.ReceiveDamage(skeleton.MakeDamage());
+            Update_All();
 
         }
 
 
+
+
+
+
+        private void knightsHealth_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skeletonsHealth_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

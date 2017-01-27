@@ -10,16 +10,17 @@ namespace KnightVSSkeleton
 {
     public class Fighter
     {
-        PictureBox mySprite;
+        protected PictureBox mySprite;
         private int health;
 
         public Fighter(PictureBox sprite)
         {
             this.mySprite = sprite;
             this.health = 100;
-        }
+        mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Skeleton_Idle.gif");
+}
 
-        public virtual int MakeDamage()
+    public virtual int MakeDamage()
         {
             Random random = new Random();
             int damage = random.Next(1, 10);
@@ -64,7 +65,13 @@ namespace KnightVSSkeleton
                 MessageBox.Show("Animation file not found!", "File Error!");
             }
         }
-
+        public bool IsDead()
+        {
+            if (health <= 0)
+                return true;
+            else return false;
+                
+                }
 
     }
 }
