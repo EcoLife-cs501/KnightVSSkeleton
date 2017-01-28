@@ -16,6 +16,7 @@ namespace KnightVSSkeleton
         Knight knight;
         Weapon shortSword;
         Weapon longSword;
+        List<Fighter> allGameObject = new List<Fighter>();
 
 
 
