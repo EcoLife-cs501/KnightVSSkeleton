@@ -32,7 +32,7 @@ namespace KnightVSSkeleton
             Random random = new Random();
 
             // TODO: Make damage makes not less than minDamage, but no more than maxDamage of weapon this instancess possesses
-            int damage = random.Next(myWeapon.minDamage, myWeapon.maxDamage);
+            int damage = random.Next(myWeapon.MinDamage, myWeapon.MaxDamage);
             return damage;
         }
 
