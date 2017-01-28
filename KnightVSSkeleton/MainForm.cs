@@ -14,15 +14,18 @@ namespace KnightVSSkeleton
     {
         Skeleton skeleton;
         Knight knight;
-        Weapon mace;
+        Weapon shortSword;
+        Weapon longSword;
+
+
 
         public MainForm()
         {
             InitializeComponent();
-            skeleton = new Skeleton(skeletonPictureBox);
-            
-            knight = new Knight(knightPictureBox);
-            mace = new Weapon(10, 25);
+            shortSword = new Weapon(10, 50);
+            longSword = new Weapon(30, 40);
+            skeleton = new Skeleton(skeletonPictureBox, longSword);           
+            knight = new Knight(knightPictureBox, shortSword);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -47,8 +50,8 @@ namespace KnightVSSkeleton
                     MessageBox.Show("Игра окончена победил skeleton");
                 else
                     MessageBox.Show("Игра окончена победил knight");
-                knight = new Knight(knightPictureBox);
-                skeleton = new Skeleton(skeletonPictureBox);
+                knight = new Knight(knightPictureBox, shortSword);
+                skeleton = new Skeleton(skeletonPictureBox, longSword);
                 skeletonPictureBox.Enabled = true;
                 knightPictureBox.Enabled = true;
                 skeletonAttacks.Enabled = true;

@@ -8,7 +8,7 @@ namespace KnightVSSkeleton
 {
     public class Skeleton : Fighter
     {
-        public Skeleton (PictureBox sprite): base(sprite)          
+        public Skeleton (PictureBox sprite, Weapon weapon): base(sprite, weapon)          
         {
 
             // TODO: Skeleton has its own constructor
