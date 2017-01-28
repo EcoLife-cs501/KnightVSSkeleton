@@ -11,6 +11,7 @@ namespace KnightVSSkeleton
         public Skeleton (PictureBox sprite): base(sprite)          
         {
 
+            // TODO: Skeleton has its own constructor
         }
     }
 }

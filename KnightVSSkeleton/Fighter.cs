@@ -13,16 +13,22 @@ namespace KnightVSSkeleton
         protected PictureBox mySprite;
         private int health;
 
+        // TODO: Both skeleton and knight have their respective weapons
+
+
         public Fighter(PictureBox sprite)
         {
             this.mySprite = sprite;
             this.health = 100;
         mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Skeleton_Idle.gif");
+            // TODO: In order to create instance you have to supply Weapon
 }
 
     public virtual int MakeDamage()
         {
             Random random = new Random();
+
+            // TODO: Make damage makes not less than minDamage, but no more than maxDamage of weapon this instancess possesses
             int damage = random.Next(1, 10);
             return damage;
         }
