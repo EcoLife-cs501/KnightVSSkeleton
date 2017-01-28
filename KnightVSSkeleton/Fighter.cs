@@ -12,14 +12,17 @@ namespace KnightVSSkeleton
     {
         protected PictureBox mySprite;
         private int health;
+        Weapon myWeapon;
+
 
         // TODO: Both skeleton and knight have their respective weapons
 
 
-        public Fighter(PictureBox sprite)
+        public Fighter(PictureBox sprite, Weapon weapon)
         {
             this.mySprite = sprite;
             this.health = 100;
+            this.myWeapon = weapon;
         mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Skeleton_Idle.gif");
             // TODO: In order to create instance you have to supply Weapon
 }
