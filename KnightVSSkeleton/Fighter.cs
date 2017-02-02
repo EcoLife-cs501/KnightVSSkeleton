@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace KnightVSSkeleton
 {
+    [Serializable]
     public class Fighter
     {
         protected PictureBox mySprite;

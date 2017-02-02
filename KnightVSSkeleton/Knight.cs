@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace KnightVSSkeleton
 {
+    [Serializable]
     public class Knight : Fighter
     {
         public Knight (PictureBox sprite, Weapon weapon):base(sprite, weapon)

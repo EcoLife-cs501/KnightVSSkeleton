@@ -35,15 +35,23 @@
             this.skeletonAttacks = new System.Windows.Forms.Button();
             this.knightsHealth = new System.Windows.Forms.Label();
             this.skeletonsHealth = new System.Windows.Forms.Label();
+            this.mainMenu = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.browseForSavedGames = new System.Windows.Forms.FolderBrowserDialog();
+            this.saveGameDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.skeletonPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.knightPictureBox)).BeginInit();
+            this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // skeletonPictureBox
             // 
             this.skeletonPictureBox.Image = global::KnightVSSkeleton.Properties.Resources.Skeleton_Idle;
             this.skeletonPictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("skeletonPictureBox.InitialImage")));
-            this.skeletonPictureBox.Location = new System.Drawing.Point(208, 7);
+            this.skeletonPictureBox.Location = new System.Drawing.Point(205, 26);
             this.skeletonPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.skeletonPictureBox.Name = "skeletonPictureBox";
             this.skeletonPictureBox.Size = new System.Drawing.Size(164, 162);
@@ -55,7 +63,7 @@
             // 
             this.knightPictureBox.Image = global::KnightVSSkeleton.Properties.Resources.Knight_Idle;
             this.knightPictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("knightPictureBox.InitialImage")));
-            this.knightPictureBox.Location = new System.Drawing.Point(14, 7);
+            this.knightPictureBox.Location = new System.Drawing.Point(11, 26);
             this.knightPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.knightPictureBox.Name = "knightPictureBox";
             this.knightPictureBox.Size = new System.Drawing.Size(164, 162);
@@ -65,7 +73,7 @@
             // 
             // knightAttacks
             // 
-            this.knightAttacks.Location = new System.Drawing.Point(14, 210);
+            this.knightAttacks.Location = new System.Drawing.Point(11, 229);
             this.knightAttacks.Margin = new System.Windows.Forms.Padding(2);
             this.knightAttacks.Name = "knightAttacks";
             this.knightAttacks.Size = new System.Drawing.Size(178, 36);
@@ -76,7 +84,7 @@
             // 
             // skeletonAttacks
             // 
-            this.skeletonAttacks.Location = new System.Drawing.Point(208, 210);
+            this.skeletonAttacks.Location = new System.Drawing.Point(205, 229);
             this.skeletonAttacks.Margin = new System.Windows.Forms.Padding(2);
             this.skeletonAttacks.Name = "skeletonAttacks";
             this.skeletonAttacks.Size = new System.Drawing.Size(172, 36);
@@ -89,25 +97,64 @@
             // 
             this.knightsHealth.AutoSize = true;
             this.knightsHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.knightsHealth.Location = new System.Drawing.Point(14, 180);
+            this.knightsHealth.Location = new System.Drawing.Point(11, 199);
             this.knightsHealth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.knightsHealth.Name = "knightsHealth";
             this.knightsHealth.Size = new System.Drawing.Size(167, 20);
             this.knightsHealth.TabIndex = 4;
             this.knightsHealth.Text = "Knights Health: 100";
-            this.knightsHealth.Click += new System.EventHandler(this.knightsHealth_Click);
             // 
             // skeletonsHealth
             // 
             this.skeletonsHealth.AutoSize = true;
             this.skeletonsHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.skeletonsHealth.Location = new System.Drawing.Point(205, 180);
+            this.skeletonsHealth.Location = new System.Drawing.Point(202, 199);
             this.skeletonsHealth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skeletonsHealth.Name = "skeletonsHealth";
             this.skeletonsHealth.Size = new System.Drawing.Size(178, 20);
             this.skeletonsHealth.TabIndex = 5;
             this.skeletonsHealth.Text = "Skeleton Health: 100";
-            this.skeletonsHealth.Click += new System.EventHandler(this.skeletonsHealth_Click);
+            // 
+            // mainMenu
+            // 
+            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.mainMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu.Name = "mainMenu";
+            this.mainMenu.Size = new System.Drawing.Size(397, 24);
+            this.mainMenu.TabIndex = 6;
+            this.mainMenu.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newGameToolStripMenuItem,
+            this.saveGameToolStripMenuItem,
+            this.loadGameToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newGameToolStripMenuItem
+            // 
+            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            // 
+            // saveGameToolStripMenuItem
+            // 
+            this.saveGameToolStripMenuItem.Name = "saveGameToolStripMenuItem";
+            this.saveGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveGameToolStripMenuItem.Text = "Save Game";
+            this.saveGameToolStripMenuItem.Click += new System.EventHandler(this.saveGameToolStripMenuItem_Click);
+            // 
+            // loadGameToolStripMenuItem
+            // 
+            this.loadGameToolStripMenuItem.Name = "loadGameToolStripMenuItem";
+            this.loadGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadGameToolStripMenuItem.Text = "Load Game";
+            this.loadGameToolStripMenuItem.Click += new System.EventHandler(this.loadGameToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -120,6 +167,8 @@
             this.Controls.Add(this.knightAttacks);
             this.Controls.Add(this.skeletonPictureBox);
             this.Controls.Add(this.knightPictureBox);
+            this.Controls.Add(this.mainMenu);
+            this.MainMenuStrip = this.mainMenu;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -128,6 +177,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.skeletonPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.knightPictureBox)).EndInit();
+            this.mainMenu.ResumeLayout(false);
+            this.mainMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +192,13 @@
         private System.Windows.Forms.Button skeletonAttacks;
         private System.Windows.Forms.Label knightsHealth;
         private System.Windows.Forms.Label skeletonsHealth;
+        private System.Windows.Forms.MenuStrip mainMenu;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadGameToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog browseForSavedGames;
+        private System.Windows.Forms.SaveFileDialog saveGameDialog;
     }
 }
 
