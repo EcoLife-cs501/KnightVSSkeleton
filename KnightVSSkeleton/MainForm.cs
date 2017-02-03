@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +18,7 @@ namespace KnightVSSkeleton
         Knight knight;
         Weapon shortSword;
         Weapon longSword;
+        string currentFolder;
 
 
 
@@ -26,6 +29,7 @@ namespace KnightVSSkeleton
             longSword = new Weapon(30, 40);
             skeleton = new Skeleton(skeletonPictureBox, longSword);           
             knight = new Knight(knightPictureBox, shortSword);
+            currentFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\KnightVSSkeleton";
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -50,8 +54,7 @@ namespace KnightVSSkeleton
                     MessageBox.Show("Игра окончена победил skeleton");
                 else
                     MessageBox.Show("Игра окончена победил knight");
-                knight = new Knight(knightPictureBox, shortSword);
-                skeleton = new Skeleton(skeletonPictureBox, longSword);
+                Reset_Fighters();
                 skeletonPictureBox.Enabled = true;
                 knightPictureBox.Enabled = true;
                 skeletonAttacks.Enabled = true;
@@ -61,31 +64,68 @@ namespace KnightVSSkeleton
             skeletonsHealth.Text = skeleton.Health;
             knightsHealth.Text = knight.Health;
         }
+
+        private void Reset_Fighters()
+        {
+            knight = new Knight(knightPictureBox, shortSword);
+            skeleton = new Skeleton(skeletonPictureBox, longSword);
+        }
+
         private void knightAttacks_Click(object sender, EventArgs e)
         {
             skeleton.ReceiveDamage(knight.MakeDamage());
             Update_All();
-                    }
+        }
 
         private void skeletonAttacks_Click(object sender, EventArgs e)
         {
             knight.ReceiveDamage(skeleton.MakeDamage());
             Update_All();
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reset_Fighters();
+            Update_All();
+        }
+
+        private void saveGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveGameDialog.Title = "Save game:";
+            saveGameDialog.Filter = "Game files | *.gam";
+            saveGameDialog.DefaultExt = "gam";
+            saveGameDialog.InitialDirectory = currentFolder;
+            if (saveGameDialog.ShowDialog() == DialogResult.OK)
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (Stream outputStream = File.OpenWrite(saveGameDialog.FileName))
+                {
+                    formatter.Serialize(outputStream, knight);
+                    formatter.Serialize(outputStream, skeleton);
+                    MessageBox.Show("Successfully saved game to " + saveGameDialog.FileName, "Game Saved!");
+                }
+            }
 
         }
 
-
-
-
-
-
-        private void knightsHealth_Click(object sender, EventArgs e)
+        private void loadGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void skeletonsHealth_Click(object sender, EventArgs e)
-        {
+            openGameDialog.Title = "Load game:";
+            openGameDialog.Filter = "Game files | *.gam";
+            openGameDialog.InitialDirectory = currentFolder;
+            openGameDialog.CheckFileExists = true;
+            if (openGameDialog.ShowDialog() == DialogResult.OK)
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (Stream inputStream = File.OpenRead(openGameDialog.FileName))
+                {                   
+                    knight = (Knight)formatter.Deserialize(inputStream);
+                    skeleton = (Skeleton)formatter.Deserialize(inputStream);
+                    knight.mySprite = knightPictureBox;
+                    skeleton.mySprite = skeletonPictureBox;                               
+                    Update_All();
+                }
+            }
 
         }
     }

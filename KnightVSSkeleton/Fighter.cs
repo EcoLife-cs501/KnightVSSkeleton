@@ -8,9 +8,10 @@ using System.Windows.Forms;
 
 namespace KnightVSSkeleton
 {
+    [Serializable]
     public class Fighter
     {
-        protected PictureBox mySprite;
+        [NonSerialized] public PictureBox mySprite;
         private int health;
         Weapon myWeapon;
 
@@ -76,11 +77,9 @@ namespace KnightVSSkeleton
         }
         public bool IsDead()
         {
-            if (health <= 0)
-                return true;
-            else return false;
-                
-                }
+            if (health <= 0) return true;
+            else return false;               
+        }
 
     }
 }
