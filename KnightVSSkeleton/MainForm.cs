@@ -110,17 +110,20 @@ namespace KnightVSSkeleton
 
         private void loadGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveGameDialog.Title = "Load game:";
-            saveGameDialog.Filter = "Game files | *.gam";
-            saveGameDialog.InitialDirectory = currentFolder;
-            saveGameDialog.CheckFileExists = true;
-            if (saveGameDialog.ShowDialog() == DialogResult.OK)
+            openGameDialog.Title = "Load game:";
+            openGameDialog.Filter = "Game files | *.gam";
+            openGameDialog.InitialDirectory = currentFolder;
+            openGameDialog.CheckFileExists = true;
+            if (openGameDialog.ShowDialog() == DialogResult.OK)
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                using (Stream inputStream = File.OpenRead(saveGameDialog.FileName))
-                {
+                using (Stream inputStream = File.OpenRead(openGameDialog.FileName))
+                {                   
                     knight = (Knight)formatter.Deserialize(inputStream);
                     skeleton = (Skeleton)formatter.Deserialize(inputStream);
+                    knight.mySprite = knightPictureBox;
+                    skeleton.mySprite = skeletonPictureBox;                               
+                    Update_All();
                 }
             }
 

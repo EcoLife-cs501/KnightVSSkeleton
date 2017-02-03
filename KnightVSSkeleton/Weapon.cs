@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace KnightVSSkeleton
 {
+    [Serializable]
     public class Weapon
     {
 

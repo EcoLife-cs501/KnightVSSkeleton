@@ -12,10 +12,10 @@ namespace KnightVSSkeleton
     [Serializable]
     public class Knight : Fighter
     {
-        public Knight (PictureBox sprite, Weapon weapon):base(sprite, weapon)
+        public Knight(PictureBox sprite, Weapon weapon) : base(sprite, weapon)
 
         {
-            base.mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Knight_Idle.GIF");        }
+            base.mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Knight_Idle.GIF"); }
 
         /// <summary>
         /// Это пример того, как работает override, и как достучаться до базового класса
@@ -29,7 +29,7 @@ namespace KnightVSSkeleton
 
         public override async void Die()
         {
-            PictureBox spriteBackup;
+            PictureBox spriteBackup; 
             spriteBackup = mySprite;
 
             try
