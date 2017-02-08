@@ -12,9 +12,10 @@ namespace KnightVSSkeleton
     public class Fighter
     {
         [NonSerialized] public PictureBox mySprite;
+        [NonSerialized] public Label myHealthLabel;
         private int health;
         Weapon myWeapon;
-        Label myHealthLabel;
+
 
 
         // TODO: Both skeleton and knight have their respective weapons
@@ -24,10 +25,9 @@ namespace KnightVSSkeleton
         {
             this.mySprite = sprite;            
             this.myWeapon = weapon;
-            this.health = 100;
             this.myHealthLabel = myHealthLabel;
-            this.myHealthLabel.Text = health.ToString();
-        mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Skeleton_Idle.gif");
+            this.Health = 100;
+            mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Skeleton_Idle.gif");
             // TODO: In order to create instance you have to supply Weapon
 }
 
@@ -60,7 +60,10 @@ namespace KnightVSSkeleton
         public int Health
         {
             get
-            { return health; }
+            { 
+                myHealthLabel.Text = health.ToString();
+                return health;
+            }
 
             private set
             {
@@ -91,7 +94,7 @@ namespace KnightVSSkeleton
         }
         public bool IsDead()
         {
-            if (health <= 0) return true;
+            if (Health <= 0) return true;
             else return false;               
         }
 

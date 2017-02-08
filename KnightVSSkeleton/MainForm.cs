@@ -64,8 +64,7 @@ namespace KnightVSSkeleton
                 else
                     MessageBox.Show("Игра окончена победил knight");
                 Reset_Fighters();
-                knight = new Knight(knightPictureBox, shortSword, knightsHealth);
-                skeleton = new Skeleton(skeletonPictureBox, longSword, skeletonsHealth);
+                
                 skeletonPictureBox.Enabled = true;
                 knightPictureBox.Enabled = true;
                 skeletonAttacks.Enabled = true;
@@ -82,8 +81,9 @@ namespace KnightVSSkeleton
 
         private void Reset_Fighters()
         {
-            knight = new Knight(knightPictureBox, shortSword);
-            skeleton = new Skeleton(skeletonPictureBox, longSword);
+            allGameObjects.Clear();
+            knight = new Knight(knightPictureBox, shortSword, knightsHealth);
+            skeleton = new Skeleton(skeletonPictureBox, longSword, skeletonsHealth);
         }
 
         private void knightAttacks_Click(object sender, EventArgs e)
@@ -137,7 +137,9 @@ namespace KnightVSSkeleton
                     knight = (Knight)formatter.Deserialize(inputStream);
                     skeleton = (Skeleton)formatter.Deserialize(inputStream);
                     knight.mySprite = knightPictureBox;
-                    skeleton.mySprite = skeletonPictureBox;                               
+                    knight.myHealthLabel = knightsHealth;
+                    skeleton.mySprite = skeletonPictureBox;
+                    skeleton.myHealthLabel = skeletonsHealth;                               
                     Update_All();
                 }
             }
