@@ -12,7 +12,7 @@ namespace KnightVSSkeleton
     [Serializable]
     public class Knight : Fighter
     {
-        public Knight(PictureBox sprite, Weapon weapon) : base(sprite, weapon)
+        public Knight (PictureBox sprite, Weapon weapon, Label label):base(sprite, weapon, label)
 
         {
             base.mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Knight_Idle.GIF"); }

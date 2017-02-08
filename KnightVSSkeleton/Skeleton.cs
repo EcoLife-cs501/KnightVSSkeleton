@@ -9,10 +9,11 @@ namespace KnightVSSkeleton
     [Serializable]
     public class Skeleton : Fighter
     {
-        public Skeleton (PictureBox sprite, Weapon weapon): base(sprite, weapon)          
+        public Skeleton (PictureBox sprite, Weapon weapon, Label label): base(sprite, weapon, label)          
         {
 
-            // TODO: Skeleton has its own constructor
+            // TODO: Skeleton has its own constructor 
+            //somechanges
         }
     }
 }

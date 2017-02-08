@@ -14,16 +14,19 @@ namespace KnightVSSkeleton
         [NonSerialized] public PictureBox mySprite;
         private int health;
         Weapon myWeapon;
+        Label myHealthLabel;
 
 
         // TODO: Both skeleton and knight have their respective weapons
 
 
-        public Fighter(PictureBox sprite, Weapon weapon)
+        public Fighter(PictureBox sprite, Weapon weapon, Label myHealthLabel)
         {
-            this.mySprite = sprite;
-            this.health = 100;
+            this.mySprite = sprite;            
             this.myWeapon = weapon;
+            this.health = 100;
+            this.myHealthLabel = myHealthLabel;
+            this.myHealthLabel.Text = health.ToString();
         mySprite.Image = Image.FromFile(@"C:\GitHub\KnightVSSkeleton\Assets\Skeleton_Idle.gif");
             // TODO: In order to create instance you have to supply Weapon
 }
@@ -39,11 +42,11 @@ namespace KnightVSSkeleton
 
         public virtual void ReceiveDamage(int damage)
         {
-            health = health - damage;
-            if (health < 0)
+            Health = Health - damage;
+            if (Health < 0)
             {
                 Die();
-                health = 0;
+                Health = 0;
             }
         }
 
@@ -51,9 +54,20 @@ namespace KnightVSSkeleton
         public int TellHealth()
         {
             return health;
+
         }
 
-        public string Health { get { return health.ToString(); } }
+        public int Health
+        {
+            get
+            { return health; }
+
+            private set
+            {
+                health = value;
+                myHealthLabel.Text = health.ToString();
+            }
+        }
 
         public virtual async void Die()
         {

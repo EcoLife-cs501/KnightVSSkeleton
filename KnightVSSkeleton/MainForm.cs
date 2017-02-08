@@ -18,7 +18,7 @@ namespace KnightVSSkeleton
         Knight knight;
         Weapon shortSword;
         Weapon longSword;
-        List<Fighter> allGameObject = new List<Fighter>();
+        List<Fighter> allGameObjects;
         string currentFolder;
 
 
@@ -26,11 +26,19 @@ namespace KnightVSSkeleton
         public MainForm()
         {
             InitializeComponent();
+
             shortSword = new Weapon(10, 50);
             longSword = new Weapon(30, 40);
-            skeleton = new Skeleton(skeletonPictureBox, longSword);           
-            knight = new Knight(knightPictureBox, shortSword);
             currentFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\KnightVSSkeleton";
+            skeleton = new Skeleton(skeletonPictureBox, longSword, skeletonsHealth);           
+            knight = new Knight(knightPictureBox, shortSword, knightsHealth);
+
+            allGameObjects = new List<Fighter>();
+            Fighter dummy = knight as Fighter;
+            allGameObjects.Add(dummy);
+            dummy = skeleton as Fighter;
+            allGameObjects.Add(dummy);
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -56,14 +64,20 @@ namespace KnightVSSkeleton
                 else
                     MessageBox.Show("Игра окончена победил knight");
                 Reset_Fighters();
+                knight = new Knight(knightPictureBox, shortSword, knightsHealth);
+                skeleton = new Skeleton(skeletonPictureBox, longSword, skeletonsHealth);
                 skeletonPictureBox.Enabled = true;
                 knightPictureBox.Enabled = true;
                 skeletonAttacks.Enabled = true;
                 knightAttacks.Enabled = true;
                 
             }
-            skeletonsHealth.Text = skeleton.Health;
-            knightsHealth.Text = knight.Health;
+            foreach (Fighter dummy in allGameObjects)
+            {
+                dummy.Health.ToString();
+            }
+
+
         }
 
         private void Reset_Fighters()
